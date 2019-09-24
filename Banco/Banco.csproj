@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\Conta.cs" />
-    <Compile Include="Dominio\Agencia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

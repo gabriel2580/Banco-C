@@ -8,7 +8,7 @@ namespace Banco.Dominio
 {
     public class Conta
     {
-        public StringBuilder Extrato = new StringBuilder();
+        public StringBuilder extrato = new StringBuilder();
 
 
         public string NumeroDaConta { get; set; }
@@ -20,27 +20,31 @@ namespace Banco.Dominio
         
         public double Deposita ()
         {
+           extrato.AppendLine($"Depósito:  {DepositarValor}");
+           extrato.AppendLine($"Saldo: {Saldo + DepositarValor}");
            return this.Saldo += DepositarValor;
+            
         }
 
         public double Saca()
         {
-           return this.Saldo -= SacarValor;
+            extrato.AppendLine($"Saque:  {SacarValor}");
+            extrato.AppendLine($"Saldo: {Saldo + DepositarValor}");
+            return this.Saldo -= SacarValor;
         }
         
 
         
-        public override string ToString()
+        public string ExtraConta()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder ExtraConta = new StringBuilder();
 
-            sb.AppendLine($"Numero da Conta: { NumeroDaConta}");
-            sb.AppendLine($"Digito Verificador: { DigitoVerificador}");
-            sb.AppendLine($"Saldo: {Saldo.ToString("###,###,###.00")}");
-            sb.AppendLine($"Limite:`{Limite.ToString("###,###,###.00")}");
-            return sb.ToString()
+            ExtraConta.AppendLine($"Numero da Conta: { NumeroDaConta}");
+            ExtraConta.AppendLine($"Digito Verificador: { DigitoVerificador}");
+            
+            return ExtraConta.ToString();
         }
 
-
+       
     }
 }
